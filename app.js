@@ -18,7 +18,7 @@ document.getElementById("current-0").textContent = "0";
 document.getElementById("current-1").textContent = "0";
 var diceDom = document.querySelector(".dice");
 diceDom.style.display = "none";
-// Шоог шидэх эвент листнер
+// Шоог шидэх эвент листенер
 document.querySelector(".btn-roll").addEventListener("click", function () {
   // 1 - 6 доторх санамсаргүй нэг тоо гаргаж авна.
   var diceNumber = Math.floor(Math.random() * 6) + 1;
@@ -36,5 +36,24 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     document.getElementById("current-" + activePlayer).textContent = roundScore;
   } else {
     // 1 буусан тул тоглогчийн ээлжийг энэ хэсэгт сольж өгнө.
+    // Энэ тоглогчийн ээлжиндээ цуглуулсан оноог 0 болгоно.
+    document.getElementById("current-" + activePlayer).textContent = 0;
+    // Тоглогчийн ээлжийг нөгөө тоглогч руу шилжүүлнэ.
+
+    // Хэрэв идвэхтэй тоглогч нь 0 байвал идвэхтэй тоглогчийг 1 болго
+    // Үгүй бол идвэхтэй тоглогчийг 0 болго.
+    roundScore = 0;
+    activePlayer === 0 ? (activePlayer = 1 ) : (activePlayer = 0);
+    // Улаан цэгийг шилжүүлэх
+    document.querySelector('.player-0-panel').classList.toggle("active");
+    document.querySelector(".player-1-panel").classList.toggle("active");
+    // Шоог түр алга болгоно.
+    diceDom.style.display = "none";
+    // if (activePlayer === 0 ){
+    //   activePlayer = 1;
+    // }else { 
+    //   activePlayer = 0;
+    // }
+
   }
 });
