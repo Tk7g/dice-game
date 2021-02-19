@@ -84,7 +84,7 @@ if(isNewGame){
     // Дэлгэц дээр оноог нь өөрчилнө.
     document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
     // Уг тоглогч хожсон эсэхийг (оноо нь 100-с их эсэх) шалгах
-    if (scores[activePlayer] >= 10){
+    if (scores[activePlayer] >= 100){
       // Тоглоомыг дууссан төлөвт оруулна.
       isNewGame = false;
       // Ялагч гэсэн техтийг нэрнийх нь оронд гаргана
